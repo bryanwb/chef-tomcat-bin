@@ -1,0 +1,28 @@
+= DESCRIPTION:
+
+Install Tomcat using the binaries available from
+the tomcat.apache.org site
+
+= REQUIREMENTS:
+
+Depends on java cookbook
+
+Should work on most linux distributions as it doesn't 
+depednt
+
+= ATTRIBUTES:
+
+* node['tomcat']['tc6_download_url']   you can specify a different
+  download url
+* node['tomcat']['tc6_checksum'] the checksum value for the link
+  you provided
+* node['tomcat']['tc7_download_url']   same as above
+* node['tomcat']['tc7_checksum'] the checksum value for the link
+  you provided
+* node['tomcat']['catalina_home'] path to your tomcat installation
+
+= USAGE:
+
+The default recipe install tomcat 6
+
+Use tomcat-bin::tomcat7 recipe to install tomcat 7
