@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# tomcat6      This shell script takes care of starting and stopping Tomcat
+# tomcat      This shell script takes care of starting and stopping Tomcat
 #
 # chkconfig: - 80 20
 #
@@ -27,6 +27,7 @@ else
     exit 1
 fi
 
+CATALINA_HOME=<%= node['tomcat']['catalina_home'] %>
 DISTRIB_ID=`lsb_release -i -s 2>/dev/null`
 
 NAME="$(basename $0)"

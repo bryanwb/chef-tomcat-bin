@@ -31,26 +31,40 @@ end
 
 user node['tomcat']['user']
 
-# if supports upstart use upstart
-if File.exists?('/sbin/initctl')
-  if platform?("ubuntu", "debian")
-    template "/etc/init/tomcat.conf" do
-      source "tomcat_debian.conf.erb"
-      mode "0755"
-    end
-  else
-    template "/etc/init/tomcat.conf" do
-      source "tomcat_el.conf.erb"
-      mode "0755"
-    end
-  end 
-else
-   
-  template "/etc/init.d/tomcat" do
-    source "tomcat.erb"
-    mode "0755"
-  end
-end
+# # if supports upstart use upstart
+# if File.exists?('/sbin/initctl')
+#   template "/etc/init/tomcat.conf" do
+#     source "tomcat.conf.erb"
+#     mode "0755"
+#   end
+# else
+#   if platform?("ubuntu", "debian")
+#       template "/etc/init.d/tomcat" do
+#         source "tomcat_debian.erb"
+#         mode "0755"
+#       end
+#   else
+#     template "/etc/init.d/tomcat" do
+#       source "tomcat_el.erb"
+#       mode "0755"
+#     end
+#   end 
+# end
 
+# if platform?("ubuntu", "debian")
+#   template "/etc/init.d/tomcat" do
+#     source "tomcat_debian.erb"
+#     mode "0755"
+#   end
+# else
+#   template "/etc/init.d/tomcat" do
+#     source "tomcat_el.erb"
+#     mode "0755"
+#   end
+# end
+
+#service "tomcat" do
+#
+#end
 
 # logrotate
